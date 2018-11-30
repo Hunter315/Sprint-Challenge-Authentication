@@ -59,16 +59,18 @@ function login(req, res) {
         if(user && bcrypt.compareSync(creds.password, user.password)) {
             const token = generateJWT(user);
             res.status(200).json(token); 
-            res.status(401).json({message: "You shall not pass!"});
+            
+        } else {
+          res.status(401).json({message: "You shall not pass!"});
         }
     })
-    .catch(err => res.status(401).json({message: "Error logging you in"}));
+    .catch(err => res.status(401).json({ message: "Error logging you in"}));
 };
 
 function getJokes(req, res) {
   axios
     .get(
-      ' https://safe-falls-22549.herokuapp.com/random_ten'
+      'https://safe-falls-22549.herokuapp.com/random_ten'
     )
     .then(response => {
       res.status(200).json(response.data);
