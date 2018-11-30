@@ -29,8 +29,7 @@ function generateJWT(user) {
 function register(req, res) {
   // implement user registration
   const creds = req.body;
- //requires both username and password to be input
- 
+
   //hash that password
   const hash = bcrypt.hashSync(creds.password, 6);
 
@@ -59,8 +58,7 @@ function login(req, res) {
     .then(user => {
         if(user && bcrypt.compareSync(creds.password, user.password)) {
             const token = generateJWT(user);
-            res.status(200).json(token); //only including token for dev purposes
-        } else {
+            res.status(200).json(token); 
             res.status(401).json({message: "You shall not pass!"});
         }
     })
