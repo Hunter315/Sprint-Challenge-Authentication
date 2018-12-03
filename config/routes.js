@@ -3,6 +3,9 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('knex')(require('../knexfile').development);
 
+
+ 
+
 const jwtKey = require('../_secrets/keys').jwtKey;
 const { authenticate } = require('./middlewares');
 
