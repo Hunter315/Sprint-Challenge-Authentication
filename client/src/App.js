@@ -20,18 +20,18 @@ class App extends Component {
             <Link to="/">Jokes</Link>
           </li>
           <li>
-            <Link to="/register">Register</Link>
+            <Link to="/api/register">Register</Link>
           </li>
           <li>
-            <Link to="/topics">Login</Link>
+            <Link to="/api/login">Login</Link>
           </li>
         </ul>
 
         
 
         <Route exact path="/" component={Jokes} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
+        <Route path="/api/register" component={Register} />
+        <Route path="/api/login" component={Login} />
       </div>
     </Router>
       
